@@ -7,5 +7,9 @@
   <h1>My account</h1> 
   <p>Welcome {{ app.user.firstname }} to your account.</p>
   <p>This is where you will manage all your personal data.</p> 
+  <ul>
+    <li><a href="{{ path('account_password') }}">Update Password</a></li>
+    <li><a href="#">Update Email</a></li>
+  </ul>
 
 {% endblock %}
