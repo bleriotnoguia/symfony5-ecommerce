@@ -10,6 +10,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
 
     <style>
         .bd-placeholder-img {
@@ -33,21 +34,29 @@
 <body>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">FonyShop</a>
+        <a class="navbar-brand" href="{{ path('home') }}">FonyShop</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Our products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
                 </li>
             </ul>
-            {% if app.user %}
-                <a href="{{ path('account') }}">My account</a> | <a href="{{ path('app_logout') }}">Logout</a>
-            {% else %}
-                <a href="{{ path('app_login') }}">Sign in</a> | <a href="{{ path('register') }}">Sign up</a>
-            {% endif %}
+            <div class="navbar-item-custom">
+                {% if app.user %}
+                    <a href="{{ path('account') }}">My account <small>( {{ app.user.firstname }} )</small> | <a href="{{ path('app_logout') }}">Logout</a>
+                {% else %}
+                    <a href="{{ path('app_login') }}">Sign in</a> | <a href="{{ path('register') }}">Sign up</a>
+                {% endif %}
+            </div>
         </div>
     </nav>
 </header>
@@ -116,9 +125,11 @@
     </div><!-- /.container -->
 
     <!-- FOOTER -->
-    <footer class="container">
-        <p class="float-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2017-2020 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    <footer class="footer-custom container-fluid">
+        <p>&copy; 2017-2021 FonyShop, Inc. <br/>
+            <small>The best place to find fun products</small><br/>
+            <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
+        </p>
     </footer>
 </main>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
