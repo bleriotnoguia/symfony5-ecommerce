@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{# {% block title %}Hello ProductController!{% endblock %} #}
+
+{% block content %}
+
+    <h1>Our products</h1>
+    <div class="row">
+        {% for product in products %}
+            <div class="col-md-4">
+                <div class="product-item text-center">
+                    <a href="{{ path('product', {'slug': product.slug})}}"><img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}" class="img-fluid"></a>
+                    <h4>{{product.name}}</h4>
+                    <span class="product-subtitle">{{ product.subtitle }}</span>
+                    <span class="product-price">{{ (product.price / 100)|number_format(2, ',', '.') }} €</span>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
