@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{# {% block title %}Hello ProductController!{% endblock %} #}
-
 {% block content %}
 
     <div class="row">
@@ -14,7 +12,7 @@
             <span class="product-page-price">{{ (product.price / 100)|number_format(2, ',', '.') }} €</span>
             <br>
             <p>{{ product.description }}</p>
-            <a href="#" class="btn btn-primary">Add to cart</a>
+            <a href="{{ path('add_to_cart', {'id': product.id}) }}" class="btn btn-primary">Add to cart</a>
         </div>
     </div>
 
