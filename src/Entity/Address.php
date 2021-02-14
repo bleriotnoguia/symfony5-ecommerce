@@ -34,6 +34,11 @@ class Address
     private $firstname;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $lastname;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $company;
@@ -100,6 +105,18 @@ class Address
     public function setFirstname(string $firstname): self
     {
         $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(string $lastname): self
+    {
+        $this->lastname = $lastname;
 
         return $this;
     }
