@@ -38,3 +38,8 @@
     height: 20px;
     padding-left: 20px;
 }
+
+.block-small{
+  max-width: 600px;
+  margin: 0 auto;  
+}

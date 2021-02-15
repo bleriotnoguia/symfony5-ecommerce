@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Submit my order - FonyShop{% endblock %}
+
+{% block content %}
+    <h2>Submit my order</h2>
+    <p>Choose your preferences before placing the order on Fonyshop</p>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            {% set formHtml %}
+                {{ form(form) }}
+            {% endset %}
+            {{ formHtml|replace({'[br]' : '<br/>'})|raw }}
+            <br/>
+            <b>Chose your carrier</b>
+        </div>
+        <div class="col-md-6">
+            <b>Order recap</b><br/>
+            <b>Pay button</b>
+        </div>
+    </div>
+{% endblock %}
