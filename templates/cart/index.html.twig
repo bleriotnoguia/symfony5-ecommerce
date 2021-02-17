@@ -51,6 +51,8 @@
             <b>Number of product :</b> {{ cart | length }} <br/>
             <b>Cart total :</b> {{ (total / 100) | number_format(2, ',', '.') }} €
             <a href="{{ path('order') }}" class="btn btn-success btn-block">Submit cart</a>
+            <hr>
+            <strong>Total :</strong> {{ ((total / 100) + carrier.price) | number_format(2, ',', '.') }} €
         </div>
       {% else %}
         <hr>
