@@ -9,6 +9,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class OrderCrudController extends AbstractCrudController
@@ -24,6 +26,11 @@ class OrderCrudController extends AbstractCrudController
             ->add('index', 'detail');
     }
 
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud->setDefaultSort(['id' => 'DESC']);
+    }
+
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -31,7 +38,10 @@ class OrderCrudController extends AbstractCrudController
             DateTimeField::new('createdAt', 'Created at'),
             TextField::new('user.fullname', 'User'),
             MoneyField::new('total')->setCurrency('EUR'),
-            BooleanField::new('isPaid', 'Paid')
+            TextField::new('carrierName', 'Shipper'),
+            MoneyField::new('carrierPrice', 'Shipping fee')->setCurrency('EUR'),
+            BooleanField::new('isPaid', 'Paid'),
+            ArrayField::new('orderDetails', 'Purchased products')->hideOnIndex()
         ];
     }
 }

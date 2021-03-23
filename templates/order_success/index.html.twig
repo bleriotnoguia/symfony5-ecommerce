@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Order confirm - Fonyshop{% endblock %}
+
+{% block content %}
+    <h2>Order confirm</h2>
+    <br>
+        Thank you <strong>{{ order.user.firstname }} {{ order.user.lastname }}</strong></br></br>
+        We thank you for your order n°<strong>{{ order.reference }}.</strong><br/>
+        An order confirmation has just been sent to you by email to the address <strong>{{ order.user.email }}</strong>
+        <hr>
+        Your order will be delivered by <strong>{{ order.carrierName }}</strong> to the address : </br>
+        {{order.delivery|raw}}
+        <hr>
+        To track your order, go to your <a href="{{ path('account') }}">account</a>
+    </p>
+{% endblock %}

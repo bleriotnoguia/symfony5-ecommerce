@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Payment error - Fonyshop{% endblock %}
+
+{% block content %}
+    <h2>Payment error</h2>
+    <br>
+        Thank you <strong>{{ order.user.firstname }} {{ order.user.lastname }}</strong></br></br>
+        It looks like your payment has failed for your order n°<strong>{{ order.reference }}.</strong><br/>
+        An error confirmation has just been sent to you by email to the address <strong>{{ order.user.email }}</strong>
+    </p>
+    <a href="{{ path('order') }}" class="btn btn-success">Retry payment</a>
+{% endblock %}
