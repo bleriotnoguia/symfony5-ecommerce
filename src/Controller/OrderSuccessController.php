@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Order;
 use App\Classe\Cart;
+use App\Classe\Mail;
 
 class OrderSuccessController extends AbstractController
 {
@@ -33,7 +34,11 @@ class OrderSuccessController extends AbstractController
             // Change order status
             $order->setIsPaid(1);
             $this->entityManager->flush();
+
             // Send confirm order mail to our client
+            $content = "hello ".$order->getUser()->getFirstname()."<br/>Thank for you order<br/>Lorem ipsum dolor sit amet. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, temporibus.";
+            $mail = new Mail();
+            $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), "Your order on fonyshop has been validated", $content);
         }
         return $this->render('order_success/index.html.twig', [
             'order' => $order
