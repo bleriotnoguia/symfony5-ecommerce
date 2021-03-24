@@ -51,7 +51,7 @@
                 {% endfor %}
             </div>
             <hr>
-            <strong>Sous-Total :</strong> {{ (total / 100) | number_format(2, ',', '.') }} € <br>
+            <strong>Subtotal :</strong> {{ (total / 100) | number_format(2, ',', '.') }} € <br>
             <strong>Shipping :</strong> {{ (carrier.price / 100) | number_format(2, ',', '.') }} €
             <hr>
             <strong>Total :</strong> {{ ((total / 100) + (carrier.price / 100)) | number_format(2, ',', '.') }} €
