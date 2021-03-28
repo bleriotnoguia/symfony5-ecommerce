@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reset password ! - FonyShop {% endblock %}
+
+{% block content %}
+    <div class="block-small">
+        <h3>Reset my password</h3>
+        {% for message in app.flashes('notice') %}
+            <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+        {{ form(form) }}
+    </div>
+{% endblock %}

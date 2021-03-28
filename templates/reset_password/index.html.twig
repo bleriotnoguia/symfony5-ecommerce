@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reset password ! - FonyShop {% endblock %}
+
+{% block content %}
+    <div class="block-small">
+        {% for message in app.flashes('notice') %}
+            <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+        <form method="post">
+            <h1 class="h3 mb-3 font-weight-normal">Reset password</h1>
+            <label for="inputEmail">Your Email</label>
+            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Your Email" required autofocus>
+        
+            <button class="btn btn-info btn-lg btn-block mt-3" type="submit">
+                Submit
+            </button>
+            <hr>
+            <p class="text-center">Or <a href="{{ path('app_login') }}">Sign in</a> ?</p>
+        </form>
+    </div>
+{% endblock %}

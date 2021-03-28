@@ -8,7 +8,9 @@
             {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
-        
+            {% for message in app.flashes('notice') %}
+                <div class="alert alert-info">{{ message }}</div>
+            {% endfor %}
             {% if app.user %}
                 <div class="mb-3">
                     You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
@@ -40,6 +42,7 @@
                 Sign in
             </button>
             <hr>
+            <p class="text-center"><a href="{{ path('reset_password') }}">Forgot your password</a> ?</p>
             <p class="text-center">Or <a href="{{ path('register') }}">Sign up</a> ?</p>
         </form>
     </div>
