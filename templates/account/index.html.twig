@@ -8,6 +8,9 @@
   <p>Welcome {{ app.user.firstname }} to your account.</p>
   <p>This is where you will manage all your personal data.</p> 
   <ul>
+    {% if is_granted('ROLE_ADMIN') %}
+    <li><a href="/admin">You are an administrator, access the backoffice</a></li>
+    {% endif %}
     <li><a href="{{ path('account_password') }}">Update Password</a></li>
     <li><a href="{{ path('account_address') }}">My Address</a></li>
     <li><a href="{{ path('account_order') }}">My orders</a></li>
