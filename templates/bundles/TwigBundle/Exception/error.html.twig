@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Error - FonyShop {% endblock %}
+
+{% block content %}
+    <div class="block-small">
+        <h2>Error</h2>
+        <p>Sorry, Error</p>
+        <p>
+            The requested page couldn't be located. Checkout for any URL
+            misspelling or <a href="{{ path('home') }}">return to the homepage</a>.
+        </p>
+    </div>
+{% endblock %}
