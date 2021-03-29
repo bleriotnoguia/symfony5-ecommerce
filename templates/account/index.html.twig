@@ -5,15 +5,30 @@
 {% block content %}
 
   <h1>My account</h1> 
+  {% if is_granted('ROLE_ADMIN') %}
+    <small><a href="/admin">You are an administrator, access the backoffice</a></small>
+  {% endif %}
   <p>Welcome {{ app.user.firstname }} to your account.</p>
   <p>This is where you will manage all your personal data.</p> 
-  <ul>
-    {% if is_granted('ROLE_ADMIN') %}
-    <li><a href="/admin">You are an administrator, access the backoffice</a></li>
-    {% endif %}
-    <li><a href="{{ path('account_password') }}">Update Password</a></li>
-    <li><a href="{{ path('account_address') }}">My Address</a></li>
-    <li><a href="{{ path('account_order') }}">My orders</a></li>
-  </ul>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="account-item text-center">
+        <img src="{{ asset('assets/img/privacy.png') }}" alt="Update my password"><br>
+        <a href="{{ path('account_password') }}">Update Password</a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="account-item text-center">
+        <img src="{{ asset('assets/img/address.png') }}" alt="My address"><br>
+        <a href="{{ path('account_address') }}">My Address</a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="account-item text-center">
+        <img src="{{ asset('assets/img/shopping.png') }}" alt="My orders"><br>
+        <a href="{{ path('account_order') }}">My orders</a>
+      </div>
+    </div>
+  </div>
 
 {% endblock %}
