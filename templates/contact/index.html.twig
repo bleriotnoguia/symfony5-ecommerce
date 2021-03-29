@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact us - FonyShop{% endblock %}
+
+{% block content %}
+   
+    <div class="container">
+        <h2>Contact form</h2>
+        <p>Do not hesite to contact our team, we will answer you as soon as possible</p>
+        {% for message in app.flashes('notice') %}
+            <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+        <div class="row">
+            <div class="col-sm-8">
+                {{ form(form) }}
+            </div>
+            <div class="col-sm-4">
+                <strong>FonyShop, Inc.</strong>
+                <hr>
+                5454 Interstate 55 North Frontage Rd, Jackson, MS 39211, États-Unis
+                <hr>
+                hello@fonyshop.com
+            </div>
+        </div>
+    </div>
+{% endblock %}
